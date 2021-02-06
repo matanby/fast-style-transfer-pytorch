@@ -37,7 +37,7 @@ def resize(image: Union[np.ndarray, Image.Image], size: Tuple[int, int]) -> np.n
         result = image_pil_resized
     else:
         as_float32 = image.dtype == np.float32
-        result = from_pil(image_pil_resized, as_float32)
+        result = to_numpy(image_pil_resized, as_float32)
 
     return result
 
@@ -65,7 +65,7 @@ def to_pil(image: Union[np.ndarray, Image.Image]) -> Image.Image:
     return image_pil
 
 
-def from_pil(image: Union[np.ndarray, Image.Image], as_float32: bool = True) -> np.ndarray:
+def to_numpy(image: Union[np.ndarray, Image.Image], as_float32: bool = True) -> np.ndarray:
     image_uint8 = np.array(image)
     if as_float32:
         return to_float32(image_uint8)
