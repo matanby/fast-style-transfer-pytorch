@@ -15,15 +15,15 @@ class TrainerConfig:
     #   - images
     #     - image_1.jpg
     #     - ...
-    dataset_path: str = r'D:\ms-coco-2014'
+    dataset_path: str
 
     # the path to the target style image.
-    style_image_path: str = 'images/styles/1.jpg'
+    style_image_path: str
 
     # the root directory in which model snapshots
     # and TensorBoard logs will be saved.
     # root_logdir: str = 'models'
-    root_logdir: str = r'd:\models'
+    root_logdir: str = 'models'
 
     # a path to a snapshot of the model's weights.
     # to be used when resuming a previous training job.
@@ -35,7 +35,7 @@ class TrainerConfig:
 
     # the weight of the style term in the total loss.
     # empirically good range: 10 - 100_000
-    lambda_style: float = 1000
+    lambda_style: float = 100
 
     # the weight of the generated image's total variation
     # in the total loss. empirically good range: 0 - 1_000.
@@ -66,7 +66,7 @@ class TrainerConfig:
 
     # the interval (number of training iterations) after which an
     # intermediate snapshot of the model will be saved to the disk.
-    snapshot_interval: int = 5000
+    snapshot_interval: int = 1000
 
     # the mini batch size to use for each training iteration.
     batch_size: int = 4
