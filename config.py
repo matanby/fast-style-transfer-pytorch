@@ -2,10 +2,9 @@ from dataclasses import dataclass
 from typing import Tuple
 
 
-# TODO: adjust values
 @dataclass
 class TrainerConfig:
-    # the path to the folder containing training set.
+    # the path to the folder containing training and validation sets.
     # this folder should be structured as follows:
     # - train
     #   - images
@@ -22,7 +21,6 @@ class TrainerConfig:
 
     # the root directory in which model snapshots
     # and TensorBoard logs will be saved.
-    # root_logdir: str = 'models'
     root_logdir: str = 'models'
 
     # a path to a snapshot of the model's weights.
@@ -72,7 +70,7 @@ class TrainerConfig:
     batch_size: int = 4
 
     # the number of workers to use for loading images
-    # form the dataset in the background
+    # from the dataset in the background
     num_data_loader_workers: int = 5
 
     def update(self, **kwargs) -> 'TrainerConfig':
